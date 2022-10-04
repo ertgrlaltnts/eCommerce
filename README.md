@@ -11,18 +11,18 @@ package and [MongoDB](https://www.mongodb.com) database.
 ## Instructions
 
 - Clone the repository and move to the project directory:
-  ```bash
-    git clone https://github.com/ertgrlaltnts/eCommerce
-    cd eCommerce
-  ```
+ ```bash
+   git clone https://github.com/ertgrlaltnts/eCommerce
+   cd eCommerce
+ ```
 - To load the package:
-  ```bash
-    npm init
-  ```
+ ```bash
+   npm init
+ ```
 - Start:
-  ```bash
-    npm start
-  ```
+ ```bash
+   npm start
+ ```
   
 ## Usage Examples
 -  Get All Product
