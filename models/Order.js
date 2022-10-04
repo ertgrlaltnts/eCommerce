@@ -3,22 +3,7 @@ const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema(
   {
-    products: [
-      {
-        ids: { type: Schema.Types.ObjectId, ref: "Product" },
-
-        amount: {
-          type: Number,
-        },
-      },
-    ],
-
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-
-    isForwarded: {
+    isDelivery: {
       type: Boolean,
       default: false,
     },
@@ -26,6 +11,12 @@ const OrderSchema = new Schema(
     totalPrice: {
       type: Number,
     },
+    customer: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+
+    order: [],
   },
   {
     timestamps: { createdAt: true, updatedAt: false },

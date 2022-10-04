@@ -4,13 +4,17 @@ const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
     },
 
-    subtitle: {
+    desc: {
       type: String,
+    },
+
+    rate: {
+      type: Number,
     },
 
     price: {
@@ -18,12 +22,11 @@ const ProductSchema = new Schema(
       required: true,
     },
 
-    photos: [],
-
-    quantity: {
+    amount: {
       type: Number,
       required: true,
     },
+    images: [],
 
     category: {
       type: Schema.Types.ObjectId,
@@ -43,7 +46,7 @@ const ProductSchema = new Schema(
 );
 
 ProductSchema.pre("save", function (next) {
-  this.slug = slugify(this.name);
+  this.slug = slugify(this.title);
   next();
 });
 

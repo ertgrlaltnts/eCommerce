@@ -27,7 +27,7 @@ exports.createOrder = async (req, res) => {
           response: `Eklediğiniz şu ürünler yetersiz : ${isError}`,
         });
       } else {
-        const user = await User.findOne({ _id: req.session.user_id });
+        const user = await User.findOne({ _id: req.session.user._id });
 
         let totalPrice = 0;
         let productList = [];
@@ -35,7 +35,7 @@ exports.createOrder = async (req, res) => {
           const product = await Product.findOne({ _id: products[i].ids });
           const basketProducts = {
             id: `${product._id}`,
-            name: product.name,
+            title: product.title,
             category1: `${product.category}`,
             category2: `${product.category}`,
             itemType: Iyzipay.BASKET_ITEM_TYPE.VIRTUAL,
@@ -106,7 +106,7 @@ exports.createOrder = async (req, res) => {
           if (result.status === "success") {
             const order = await Order.create({
               ...req.body,
-              user: req.session.user_id,
+              customer: req.session.user._id,
             });
 
             res.status(200).json({

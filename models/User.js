@@ -31,6 +31,9 @@ const UserSchema = new Schema(
       default: "user",
     },
 
+    address: [],
+    favourites: [],
+
     uniqueString: {
       type: String,
     },
@@ -40,8 +43,13 @@ const UserSchema = new Schema(
     },
 
     basket: [],
-
-    pastOrder: [],
+    order: [],
+    cards: [],
+    slug: {
+      type: String,
+      unique: true,
+      lowercase: true,
+    },
   },
   {
     timestamps: { createdAt: true, updatedAt: false },
